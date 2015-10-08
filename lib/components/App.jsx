@@ -104,12 +104,10 @@ var App = React.createClass({
       return (
         <div>
           {uploadSettings}
-          {timezone}
           <DeviceSelection
             uploads={this.state.uploads}
             targetId={this.state.targetId}
             targetDevices={this.state.targetDevices}
-            timezoneIsSelected={!_.isEmpty(targetTimezone)}
             onCheckChange={this.appActions.addOrRemoveTargetDevice.bind(this.appActions)}
             onDone={this.appActions.storeUserTargets.bind(this.appActions)}
             groupsDropdown={!this.onlyMe()} />
@@ -121,10 +119,12 @@ var App = React.createClass({
       return (
         <div>
           {uploadSettings}
+          {timezone}
           <UploadList
             targetId={this.state.targetId}
             uploads={this.state.uploads}
             targetedUploads={this.appState.uploadsWithFlags()}
+            timezoneIsSelected={!_.isEmpty(targetTimezone)}
             onUpload={this.appActions.upload.bind(this.appActions)}
             onReset={this.appActions.reset.bind(this.appActions)}
             readFile={this.appActions.readFile.bind(this.appActions)}

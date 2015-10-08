@@ -29,6 +29,7 @@ var Upload = React.createClass({
     onUpload: React.PropTypes.func.isRequired,
     onReset: React.PropTypes.func.isRequired,
     readFile: React.PropTypes.func.isRequired,
+    timezoneIsSelected: React.PropTypes.bool.isRequired,
     text: React.PropTypes.object
   },
 
@@ -164,6 +165,7 @@ var Upload = React.createClass({
     if (this.isBlockModeDevice()) {
       disabled = disabled || this.state.blockModeFileNotChosen;
     }
+    disabled = disabled || !this.props.timezoneIsSelected;
 
     return (
       <div className="Upload-button">

@@ -27,6 +27,7 @@ var UploadList = React.createClass({
     onUpload: React.PropTypes.func.isRequired,
     onReset: React.PropTypes.func.isRequired,
     readFile: React.PropTypes.func.isRequired,
+    timezoneIsSelected: React.PropTypes.bool.isRequired,
     groupsDropdown: React.PropTypes.bool.isRequired,
     text: React.PropTypes.object
   },
@@ -69,7 +70,7 @@ var UploadList = React.createClass({
     var showDetailsThisUpload = _.includes(this.state.showErrorDetails, upload.key);
     var errorDetails = showDetailsThisUpload ? (<div className="UploadList-error-details">{upload.error.debug}</div>) : null;
     var showErrorsText = showDetailsThisUpload ? this.props.text.HIDE_ERROR : this.props.text.SHOW_ERROR;
-    
+
     var clickHandler = this.makeHandleShowDetailsFn(upload);
 
     return (
@@ -106,6 +107,7 @@ var UploadList = React.createClass({
             upload={matchingUpload}
             onUpload={self.props.onUpload.bind(null, index)}
             onReset={self.props.onReset.bind(null, index)}
+            timezoneIsSelected={self.props.timezoneIsSelected}
             readFile={self.props.readFile.bind(null, index, self.props.targetId)} />
           {self.renderErrorForUpload(matchingUpload)}
         </div>

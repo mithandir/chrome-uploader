@@ -26,7 +26,6 @@ var DeviceSelection = React.createClass({
     // for example a clinic worker
     targetId: React.PropTypes.string,
     targetDevices: React.PropTypes.array.isRequired,
-    timezoneIsSelected: React.PropTypes.bool.isRequired,
     onCheckChange: React.PropTypes.func.isRequired,
     onDone: React.PropTypes.func.isRequired,
     groupsDropdown: React.PropTypes.bool.isRequired
@@ -52,12 +51,9 @@ var DeviceSelection = React.createClass({
     var formClasses = cx({
       'DeviceSelection-form': true,
       'DeviceSelection-form--onlyme': !this.props.groupsDropdown,
-      'DeviceSelection-form--groups': this.props.groupsDropdown,
-      'DeviceSelection-form--timezone' : true
+      'DeviceSelection-form--groups': this.props.groupsDropdown
     });
 
-    var disabled = (this.props.targetDevices.length > 0 && this.props.timezoneIsSelected) ?
-      false : true;
     return (
       <div className="DeviceSelection">
         <h3 className="DeviceSelection-headline">Choose devices</h3>
@@ -65,7 +61,7 @@ var DeviceSelection = React.createClass({
         <button type="submit"
           className="DeviceSelection-button btn btn-primary"
           onClick={this.handleSubmit}
-          disabled={disabled}>
+          disabled={this.props.targetDevices.length == 0}>
           Done
         </button>
       </div>
