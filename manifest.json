@@ -4,7 +4,7 @@
   "short_name": "Uploader",
   "version": "0.254.0",
   "description": "The Tidepool Uploader helps you get your data from insulin pumps, CGMs and BG meters into Tidepool’s secure cloud platform.",
-  "minimum_chrome_version": "38",
+  "minimum_chrome_version": "48",
   "icons": {
     "16": "images/T_icon_dark_16.png",
     "32": "images/T_icon_dark_32.png",
